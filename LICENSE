@@ -19,3 +19,13 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+---
+
+## ✅ Commit History
+```bash
+git init
+git add .
+git commit -m "feat(ci): add reusable Rust CI workflow"
+git commit -m "feat(ci): add Docker build & push workflow"
+git commit -m "feat(ci): add Node.js test workflow"
+git commit -m "docs(readme): document usage of CI/CD templates"
