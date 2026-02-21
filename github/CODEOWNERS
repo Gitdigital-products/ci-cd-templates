@@ -1,0 +1,16 @@
+# Gitdigital Products - CI/CD Templates Code Owners
+# Maintained by Gitdigital and RickCreator87
+
+# Global Owners - They must approve ANY change to the templates
+* @Gitdigital-products/maintainers @RickCreator87
+
+# DevOps Infrastructure - Specific focus on build & deploy logic
+/.github/workflows/docker-reusable.yml  @Gitdigital-products/devops-engineers @RickCreator87
+/.github/workflows/k8s-deploy.yml       @Gitdigital-products/devops-engineers @RickCreator87
+
+# Security & Compliance - Crucial for KYC/Fintech products
+/.github/workflows/security-audit.yml   @Gitdigital-products/security-team @RickCreator87
+
+# Onboarding Scripts & Docs
+/init-ci.sh                             @RickCreator87
+/README.md                              @Gitdigital-products/maintainers @RickCreator87
