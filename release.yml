@@ -1,0 +1,32 @@
+name: Release Management
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate Changelog
+        id: changelog
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+
+      - name: Update Major Version Tag
+        run: |
+          # Extract major version (e.g., v1 from v1.2.3)
+          MAJOR=$(echo "${{ github.ref_name }}" | cut -d. -f1)
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -fa $MAJOR -m "Update $MAJOR to ${{ github.ref_name }}"
+          git push origin $MAJOR --force
