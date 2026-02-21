@@ -1,0 +1,22 @@
+name: Go CI
+on:
+  workflow_call:
+    inputs:
+      go_version:
+        type: string
+        default: '1.21'
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ inputs.go_version }}
+          cache: true
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v3
+      - name: Run Tests
+        run: go test -v -race -coverprofile=coverage.out ./...
